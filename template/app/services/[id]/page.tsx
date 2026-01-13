@@ -19,7 +19,7 @@ export default async function ServicePage({
   params: Promise<{ id: string }>
 }) {
   const { id } = await params
-  const service = services.find((s) => s.id === Number.parseInt(id))
+  const service = services.find((s) => s.id === Number.parseInt(id, 10))
 
   if (!service) {
     notFound()

@@ -19,7 +19,7 @@ export default async function ExperiencePage({
   params: Promise<{ id: string }>
 }) {
   const { id } = await params
-  const experience = experiences.find((e) => e.id === Number.parseInt(id))
+  const experience = experiences.find((e) => e.id === Number.parseInt(id, 10))
 
   if (!experience) {
     notFound()
