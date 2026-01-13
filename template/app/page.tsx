@@ -1,9 +1,9 @@
-import { HeroSection } from "@/components/hero-section"
-import { WelcomeSection } from "@/components/welcome-section"
-import { RecommendationsSection } from "@/components/recommendations-section"
-import { ShoppingSection } from "@/components/shopping-section"
-import { InformationSection } from "@/components/information-section"
-import { experiences, services } from "@/lib/data"
+import { HeroSection } from '@/components/hero-section'
+import { InformationSection } from '@/components/information-section'
+import { RecommendationsSection } from '@/components/recommendations-section'
+import { ShoppingSection } from '@/components/shopping-section'
+import { WelcomeSection } from '@/components/welcome-section'
+import { experiences, services } from '@/lib/data'
 
 export default function Page() {
   return (
@@ -13,25 +13,25 @@ export default function Page() {
       <RecommendationsSection />
 
       <ShoppingSection
-        title="Esperienze da comprare"
-        items={experiences.map(e => ({
+        basePath="/experiences"
+        items={experiences.map((e) => ({
           id: e.id,
           title: e.title,
           description: e.description,
-          image: e.image
+          image: e.image,
         }))}
-        basePath="/experiences"
+        title="Esperienze da comprare"
       />
 
       <ShoppingSection
-        title="Servizi da comprare"
-        items={services.map(s => ({
+        basePath="/services"
+        items={services.map((s) => ({
           id: s.id,
           title: s.title,
           description: s.description,
-          image: s.image
+          image: s.image,
         }))}
-        basePath="/services" 
+        title="Servizi da comprare"
       />
 
       <InformationSection />

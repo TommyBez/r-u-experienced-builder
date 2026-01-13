@@ -1,6 +1,6 @@
-import Link from "next/link"
-import { Plus, ShoppingBag } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Plus, ShoppingBag } from 'lucide-react'
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
 
 interface ShoppingItem {
   id: number
@@ -16,45 +16,52 @@ interface ShoppingSectionProps {
   basePath?: string
 }
 
-export function ShoppingSection({ title, items, basePath = "/experiences" }: ShoppingSectionProps) {
+export function ShoppingSection({
+  title,
+  items,
+  basePath = '/experiences',
+}: ShoppingSectionProps) {
   return (
-    <section className="container mx-auto px-6 py-16 md:py-24 border-t border-border">
-      <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-12">
+    <section className="container mx-auto border-border border-t px-6 py-16 md:py-24">
+      <h2 className="mb-12 font-bold font-serif text-3xl text-foreground md:text-4xl">
         {title}
       </h2>
-      
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+
+      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
         {items.map((item) => (
-          <Link 
-            href={`${basePath}/${item.id}`} 
+          <Link
+            className="group block cursor-pointer"
+            href={`${basePath}/${item.id}`}
             key={item.id}
-            className="group cursor-pointer block"
           >
-            <div className="relative aspect-[4/3] bg-secondary rounded-xl overflow-hidden mb-4">
+            <div className="relative mb-4 aspect-[4/3] overflow-hidden rounded-xl bg-secondary">
               {/* Placeholder image/pattern */}
-              <div className="absolute inset-0 bg-gradient-to-br from-secondary to-muted group-hover:scale-105 transition-transform duration-500" />
-              
+              <div className="absolute inset-0 bg-gradient-to-br from-secondary to-muted transition-transform duration-500 group-hover:scale-105" />
+
               <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/20">
-                <ShoppingBag className="w-12 h-12 opacity-50" />
+                <ShoppingBag className="h-12 w-12 opacity-50" />
               </div>
 
-              <Button 
+              <Button
+                className="absolute right-4 bottom-4 h-10 w-10 translate-y-2 rounded-full bg-background text-foreground opacity-0 shadow-md transition-all duration-300 hover:bg-primary hover:text-primary-foreground group-hover:translate-y-0 group-hover:opacity-100"
                 size="icon"
-                className="absolute bottom-4 right-4 w-10 h-10 rounded-full shadow-md opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 bg-background text-foreground hover:bg-primary hover:text-primary-foreground"
               >
-                <Plus className="w-5 h-5" />
+                <Plus className="h-5 w-5" />
               </Button>
             </div>
-            
+
             <div className="space-y-2">
-              <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+              <h3 className="font-semibold text-foreground text-lg transition-colors group-hover:text-primary">
                 {item.title}
               </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2">
+              <p className="line-clamp-2 text-muted-foreground text-sm leading-relaxed">
                 {item.description}
               </p>
               <div className="pt-2 font-medium text-foreground">
-                Prenota ora <span className="text-muted-foreground font-normal ml-1">• Dettagli</span>
+                Prenota ora{' '}
+                <span className="ml-1 font-normal text-muted-foreground">
+                  • Dettagli
+                </span>
               </div>
             </div>
           </Link>
