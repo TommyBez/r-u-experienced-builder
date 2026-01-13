@@ -12,6 +12,7 @@
   "dependencies": {
     "@base-ui/react": "^1.0.0",
     "@tabler/icons-react": "^3.36.1",
+    "@vercel/sdk": "^1.18.7",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
