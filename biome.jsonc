@@ -9,10 +9,6 @@
     }
   },
   "files": {
-    "includes": [
-      "**/*",
-      "!components/ui/*",
-      "!template"
-    ]
+    "includes": ["**/*", "!components/ui/*", "!template"]
   }
 }
