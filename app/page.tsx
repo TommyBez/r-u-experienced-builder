@@ -1,5 +1,5 @@
-import { ComponentExample } from '@/components/component-example'
+import { BuilderForm } from '@/components/builder/builder-form'
 
 export default function Page() {
-  return <ComponentExample />
+  return <BuilderForm />
 }
