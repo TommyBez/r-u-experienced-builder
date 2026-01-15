@@ -4,28 +4,28 @@ overview: Add a Neon-hosted Postgres database, manage it with Drizzle ORM + migr
 todos:
   - id: deps
     content: Add Neon/Drizzle/Better Auth dependencies and env var docs.
-    status: pending
+    status: completed
   - id: db-setup
     content: Add Drizzle config + Neon-backed Drizzle client (`lib/db.ts`).
-    status: pending
+    status: completed
   - id: auth-schema
     content: Generate and integrate Better Auth Drizzle schema into the project.
-    status: pending
+    status: completed
   - id: domain-schema
     content: Implement `property`, `property_configuration`, and `property_configuration_history` tables with constraints/indexes and JSONB config.
-    status: pending
+    status: completed
   - id: migrations
     content: Generate/apply drizzle migrations against Neon.
-    status: pending
+    status: completed
   - id: better-auth
     content: Add Better Auth server instance + mount Next.js route handler + client helper.
-    status: pending
+    status: completed
   - id: history-writes
     content: Add transactional write pattern for config + history (helper or route-level pattern).
-    status: pending
+    status: completed
   - id: config-validation
     content: Add schemaVersion-based Zod schema (discriminated union) + server-side validation for property configuration JSON on create/update.
-    status: pending
+    status: completed
 isProject: false
 ---
 
