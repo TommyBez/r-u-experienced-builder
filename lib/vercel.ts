@@ -123,17 +123,14 @@ export const assignAlias = async ({
 export const deployAndAlias = async ({
   files,
   name,
-  alias,
   teamId,
 }: {
   files: DeploymentFiles
   name: string
-  alias: string
   teamId?: string
 }): Promise<{
   deploymentId: string
   deploymentUrl: string
-  aliasUrl: string
 }> => {
   // 1. Create the deployment
   const deployment = await createDeployment({
@@ -155,16 +152,8 @@ export const deployAndAlias = async ({
     throw new Error(`Deployment failed with status: ${status}`)
   }
 
-  // 3. Assign the alias
-  const aliasResult = await assignAlias({
-    deploymentId,
-    alias,
-    teamId,
-  })
-
   return {
     deploymentId,
     deploymentUrl: `https://${url}`,
-    aliasUrl: `https://${aliasResult.alias}`,
   }
 }
