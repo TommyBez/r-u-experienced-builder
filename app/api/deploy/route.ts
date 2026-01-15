@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { z } from 'zod'
+import { getSession } from '@/lib/auth'
 import { buildTemplateFiles, getTemplatePath } from '@/lib/template-builder'
 import type { BuilderConfig } from '@/lib/template-patchers'
 import { type DeploymentFiles, deployAndAlias } from '@/lib/vercel'
@@ -61,6 +62,15 @@ const deployRequestSchema = z.object({
 
 export async function POST(request: Request) {
   try {
+    // Check authentication
+    const session = await getSession()
+    if (!session) {
+      return NextResponse.json(
+        { error: 'Authentication required' },
+        { status: 401 },
+      )
+    }
+
     // Parse request body
     const body = await request.json()
 

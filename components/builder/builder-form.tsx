@@ -23,6 +23,7 @@ import {
 } from '@/components/ui/select'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Textarea } from '@/components/ui/textarea'
+import { useSession } from '@/lib/auth-client'
 import {
   type BuilderConfig,
   DEFAULT_HERO,
@@ -39,6 +40,8 @@ interface DeployResult {
 }
 
 export function BuilderForm() {
+  const { isPending: isSessionLoading } = useSession()
+
   // Site name
   const [siteName, setSiteName] = useState('')
 
@@ -370,7 +373,7 @@ export function BuilderForm() {
         <CardContent className="pt-6">
           <Button
             className="w-full"
-            disabled={isDeploying || !siteName.trim()}
+            disabled={isDeploying || !siteName.trim() || isSessionLoading}
             onClick={handleDeploy}
             size="lg"
           >
