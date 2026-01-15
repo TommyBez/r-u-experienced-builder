@@ -264,7 +264,7 @@ export const DEFAULT_HERO: HeroConfig = {
 const HERO_KICKER_REGEX = /(<h2[^>]*>\s*)Casa Immaginaria(\s*<\/h2>)/
 const HERO_HEADLINE_REGEX = /(<h1[^>]*>\s*)Il tuo rifugio urbano(\s*<\/h1>)/
 const HERO_DESCRIPTION_REGEX =
-  /(<p[^>]*className="[^"]*text-muted-foreground[^"]*"[^>]*>\s*)Tra comfort e stile, scopri un nuovo modo di vivere la città\.\s*Rilassati, esplora e sentiti a casa fin dal primo momento\.(\s*<\/p>)/s
+  /(<p[^>]*className="[^"]*text-muted-foreground[^"]*"[^>]*>\s*)Tra comfort e stile, scopri un nuovo modo di vivere la città\.\s*Rilassati, esplora e sentiti a casa fin dal primo momento\.(\s*<\/p>)/
 const HERO_PRIMARY_CTA_REGEX =
   /(<Button[^>]*>\s*)Esplora la casa(\s*<\/Button>)/
 const HERO_SECONDARY_CTA_REGEX =
