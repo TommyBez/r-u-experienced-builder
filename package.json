@@ -17,6 +17,7 @@
     "@base-ui/react": "^1.0.0",
     "@neondatabase/serverless": "^1.0.2",
     "@tabler/icons-react": "^3.36.1",
+    "@tanstack/react-form": "^1.27.7",
     "@vercel/sdk": "^1.18.7",
     "better-auth": "^1.4.13",
     "class-variance-authority": "^0.7.1",
