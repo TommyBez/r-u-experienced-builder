@@ -1,6 +1,7 @@
 'use client'
 
-import { useFormState, useFormStatus } from 'react-dom'
+import { useActionState } from 'react'
+import { useFormStatus } from 'react-dom'
 import { Button } from '@/components/ui/button'
 import { FieldError } from '@/components/ui/field'
 import { Textarea } from '@/components/ui/textarea'
@@ -22,7 +23,7 @@ export function PropertyConfigurationForm({
   defaultValue,
   action,
 }: PropertyConfigurationFormProps) {
-  const [state, formAction] = useFormState(action, {
+  const [state, formAction] = useActionState(action, {
     error: null,
     success: false,
   })

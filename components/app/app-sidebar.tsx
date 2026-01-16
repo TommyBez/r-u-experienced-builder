@@ -4,7 +4,6 @@ import {
   IconBuildingStore,
   IconLayoutDashboard,
   IconSettings,
-  IconSparkles,
   IconUser,
 } from '@tabler/icons-react'
 import Link from 'next/link'
@@ -33,14 +32,6 @@ const primaryLinks = [
     title: 'Properties',
     href: '/properties',
     icon: IconBuildingStore,
-  },
-]
-
-const toolLinks = [
-  {
-    title: 'Builder',
-    href: '/',
-    icon: IconSparkles,
   },
 ]
 
@@ -89,24 +80,6 @@ export function AppSidebar() {
             <SidebarGroupContent>
               <SidebarMenu>
                 {primaryLinks.map((item) => (
-                  <SidebarMenuItem key={item.href}>
-                    <SidebarMenuButton asChild isActive={isActive(item.href)}>
-                      <Link href={item.href}>
-                        <item.icon />
-                        <span>{item.title}</span>
-                      </Link>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                ))}
-              </SidebarMenu>
-            </SidebarGroupContent>
-          </SidebarGroup>
-          <SidebarSeparator />
-          <SidebarGroup>
-            <SidebarGroupLabel>Tools</SidebarGroupLabel>
-            <SidebarGroupContent>
-              <SidebarMenu>
-                {toolLinks.map((item) => (
                   <SidebarMenuItem key={item.href}>
                     <SidebarMenuButton asChild isActive={isActive(item.href)}>
                       <Link href={item.href}>

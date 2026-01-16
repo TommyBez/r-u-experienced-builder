@@ -33,24 +33,25 @@ export default function NewPropertyPage() {
       return { error: 'Property name is required.' }
     }
 
+    let created: Awaited<ReturnType<typeof createPropertyWithConfiguration>>
     try {
       const baseConfig = getDefaultBuilderConfig()
       const configuration = {
         schemaVersion: 1,
         ...baseConfig,
       }
-      const created = await createPropertyWithConfiguration({
+      created = await createPropertyWithConfiguration({
         ownerUserId: user.id,
         name,
         configuration,
       })
-      redirect(`/properties/${created.id}`)
     } catch (error) {
       return {
         error:
           error instanceof Error ? error.message : 'Failed to create property.',
       }
     }
+    redirect(`/properties/${created.id}`)
   }
 
   return (

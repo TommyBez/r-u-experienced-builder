@@ -17,22 +17,22 @@ import {
 
 export default async function PropertyDetailPage({
   params,
-}: {
-  params: { propertyId: string }
-}) {
+}: PageProps<'/properties/[propertyId]'>) {
   const user = await getCurrentUser()
   if (!user) {
     redirect('/sign-in')
   }
 
+  const { propertyId } = await params
+
   const [propertyRecord, configuration] = await Promise.all([
     getPropertyForUser({
       userId: user.id,
-      propertyId: params.propertyId,
+      propertyId,
     }),
     getCurrentConfiguration({
       userId: user.id,
-      propertyId: params.propertyId,
+      propertyId,
     }),
   ])
 
