@@ -13,8 +13,14 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
+import {
+  Field,
+  FieldContent,
+  FieldError,
+  FieldGroup,
+  FieldLabel,
+} from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
 import { signUp } from '@/lib/auth-client'
 
 export function SignUpForm() {
@@ -65,60 +71,68 @@ export function SignUpForm() {
         <CardDescription>Enter your details to get started</CardDescription>
       </CardHeader>
       <form onSubmit={handleSubmit}>
-        <CardContent className="flex flex-col gap-4">
-          {error && (
-            <div className="rounded-lg bg-destructive/10 p-3 text-destructive text-sm">
-              {error}
-            </div>
-          )}
-          <div className="flex flex-col gap-2">
-            <Label htmlFor="name">Name</Label>
-            <Input
-              disabled={isLoading}
-              id="name"
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Your name"
-              required
-              type="text"
-              value={name}
-            />
-          </div>
-          <div className="flex flex-col gap-2">
-            <Label htmlFor="email">Email</Label>
-            <Input
-              disabled={isLoading}
-              id="email"
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="you@example.com"
-              required
-              type="email"
-              value={email}
-            />
-          </div>
-          <div className="flex flex-col gap-2">
-            <Label htmlFor="password">Password</Label>
-            <Input
-              disabled={isLoading}
-              id="password"
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Create a password"
-              required
-              type="password"
-              value={password}
-            />
-          </div>
-          <div className="flex flex-col gap-2">
-            <Label htmlFor="confirmPassword">Confirm Password</Label>
-            <Input
-              disabled={isLoading}
-              id="confirmPassword"
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              placeholder="Confirm your password"
-              required
-              type="password"
-              value={confirmPassword}
-            />
-          </div>
+        <CardContent className="py-4">
+          <FieldGroup>
+            {error && <FieldError>{error}</FieldError>}
+            <Field>
+              <FieldLabel htmlFor="name">Name</FieldLabel>
+              <FieldContent>
+                <Input
+                  disabled={isLoading}
+                  id="name"
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Your name"
+                  required
+                  type="text"
+                  value={name}
+                />
+              </FieldContent>
+            </Field>
+            <Field>
+              <FieldLabel htmlFor="email">Email</FieldLabel>
+              <FieldContent>
+                <Input
+                  disabled={isLoading}
+                  id="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="you@example.com"
+                  required
+                  type="email"
+                  value={email}
+                />
+              </FieldContent>
+            </Field>
+            <Field>
+              <FieldLabel htmlFor="password">Password</FieldLabel>
+              <FieldContent>
+                <Input
+                  disabled={isLoading}
+                  id="password"
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Create a password"
+                  required
+                  type="password"
+                  value={password}
+                />
+              </FieldContent>
+            </Field>
+            <Field>
+              <FieldLabel htmlFor="confirmPassword">
+                Confirm Password
+              </FieldLabel>
+              <FieldContent>
+                <Input
+                  disabled={isLoading}
+                  id="confirmPassword"
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  placeholder="Confirm your password"
+                  required
+                  type="password"
+                  value={confirmPassword}
+                />
+              </FieldContent>
+            </Field>
+          </FieldGroup>
         </CardContent>
         <CardFooter className="flex flex-col gap-4">
           <Button className="w-full" disabled={isLoading} type="submit">
