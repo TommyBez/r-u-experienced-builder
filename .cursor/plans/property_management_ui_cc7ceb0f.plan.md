@@ -4,25 +4,25 @@ overview: Add an authenticated application area with a sidebar-based layout, plu
 todos:
   - id: app-shell-layout
     content: Create `app/(app)/layout.tsx` (server) + client `components/app/app-shell.tsx` integrating `SidebarProvider` and a shared header area.
-    status: pending
+    status: completed
   - id: sidebar-nav
     content: Implement `components/app/app-sidebar.tsx` using `components/ui/sidebar.tsx` primitives; add navigation links and active state.
-    status: pending
+    status: completed
   - id: property-queries
     content: Add server-side query helpers (Drizzle) for listing/fetching properties/config/history scoped to current user.
-    status: pending
+    status: completed
   - id: properties-pages
     content: Add server-first pages under `app/(app)/properties` for list, create, detail, configuration, history; use server actions for mutations.
-    status: pending
+    status: completed
   - id: deploy-route
     content: Add `app/api/properties/[propertyId]/deploy/route.ts` and a small client `DeployButton` to trigger deployments from a property.
-    status: pending
+    status: completed
   - id: config-validation
     content: Align `lib/property-configuration.ts` Zod schema with the stored configuration shape (schemaVersion + builder-relevant fields).
-    status: pending
+    status: completed
   - id: react-best-practices-review
     content: Perform a React best-practices assessment using the `vercel-react-best-practices` skill (server/client boundaries, hooks usage, composition, accessibility, performance) and apply quick fixes.
-    status: pending
+    status: completed
 isProject: false
 ---
 
